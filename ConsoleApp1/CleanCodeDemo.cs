@@ -10,24 +10,24 @@ namespace ConsoleApp1
     {
         int exchangeRate;
 
-        public bool changename(List<string> name)
+        public bool isEmployeesNamesValid(List<string> employeeNames)
         {
-            bool fl = true;
-            foreach (var n in name)
+            bool allEmployeesValid = true;
+            foreach (var employeeName in employeeNames)
             {
-                if (fl)
+                if (allEmployeesValid)
                 {
-                    if (GoesOrNoGoes(n))
+                    if (this.isValid(employeeName))
                     {
-                        fl = false;
+                        allEmployeesValid = false;
                     }
                 }
             }
-            return fl;
+            return allEmployeesValid;
         }
-        private bool GoesOrNoGoes(string emp)
+        private bool isValid(string employeeName)
         {
-            return string.IsNullOrEmpty(emp);
+            return string.IsNullOrEmpty(employeeName);
         }
 
     }
