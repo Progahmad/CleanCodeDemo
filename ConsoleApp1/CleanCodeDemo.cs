@@ -30,5 +30,20 @@ namespace ConsoleApp1
             return string.IsNullOrEmpty(employeeName);
         }
 
+        public bool CheckIfCreditCanBeApproved(int amount, int age, int creditDuration)
+        {
+            //These are conditions where credit can be approved - allowed risk
+            if (NewMethod(amount, age, creditDuration))
+            {
+                return true;
+            }
+            //other logic here....
+            return false;
+        }
+
+        private static bool NewMethod(int amount, int age, int creditDuration)
+        {
+            return amount < 100000 || (age < 65 && creditDuration < 15);
+        }
     }
 }
