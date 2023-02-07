@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using static TrainingArena.Practice2;
+
 
 namespace ImproveReadibility
 {

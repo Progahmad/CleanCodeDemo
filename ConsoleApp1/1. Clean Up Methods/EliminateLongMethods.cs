@@ -10,7 +10,10 @@ namespace CleanUpMethods
             {
                 "Samsung Galaxy S20", "Pixel 2", "Pixel 3", "Pixel 4", "iPhone XR", "iPhone 12", "iPhone 12 Pro", "iPhone 12 Pro Max" 
             };
-
+       
+        /// <summary>
+        /// Perform Search Function
+        /// </summary>
         public void PerformSearch()
         {
             bool continueSearch = true;

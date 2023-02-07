@@ -49,10 +49,15 @@ namespace CleanUpMethods
             {
                 taxableSalary = higherSalaryAmount;
             }
-            tax = (taxableSalary - _belowTaxSalaryAmount) * (_taxPercentage / 100);
+            tax = CalcTax(taxableSalary);
             taxSum += tax;
 
             return grossSalaryAmount - taxSum;
+        }
+
+        private decimal CalcTax(decimal taxableSalary)
+        {
+            return (taxableSalary - _belowTaxSalaryAmount) * (_taxPercentage / 100);
         }
     }
 }
