@@ -9,26 +9,36 @@ namespace CleanUpConditionals
         public void SaveHomeAddress(string name, string homeAddress, string country, string email, string fileLocation)
         {
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(homeAddress)
-                            || string.IsNullOrEmpty(fileLocation))
+            if (IsEmptyorNull(name, homeAddress, fileLocation))
             {
                 Console.WriteLine("Input parameters are empty");
             }
             else
             {
-                using (FileStream fileStream = new FileStream(fileLocation, FileMode.Append))
-                using (StreamWriter writer = new StreamWriter(fileStream))
-                {
-                    List<string> aPersonRecod = new List<string>
+                SaveFile(name, homeAddress, country, email, fileLocation);
+            }
+        }
+
+        private static void SaveFile(string name, string homeAddress, string country, string email, string fileLocation)
+        {
+            using (FileStream fileStream = new FileStream(fileLocation, FileMode.Append))
+            using (StreamWriter writer = new StreamWriter(fileStream))
+            {
+                List<string> aPersonRecod = new List<string>
                     {
                         name,
                         homeAddress,
                         country,
                         email
                     };
-                    writer.WriteLine(aPersonRecod);
-                }
+                writer.WriteLine(aPersonRecod);
             }
+        }
+
+        private static bool IsEmptyorNull(string name, string homeAddress, string fileLocation)
+        {
+            return string.IsNullOrEmpty(name) || string.IsNullOrEmpty(homeAddress)
+                                        || string.IsNullOrEmpty(fileLocation);
         }
     }
 }
